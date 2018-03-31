@@ -1,8 +1,18 @@
 import React from "react";
 
-const TabBlockHeader = ({ data, handleTabClick, currentlyActiveTabIndex }) => {
+const TabBlockHeader = ({
+  data,
+  handleTabClick,
+  currentlyActiveTabIndex,
+  tabBlockHeaderRef,
+  handleTabHeaderScroll
+}) => {
   return (
-    <div className="tab-block__header-wrapper">
+    <div
+      onScroll={handleTabHeaderScroll}
+      ref={tabBlockHeaderRef}
+      className="tab-block__header-wrapper"
+    >
       {data.map((tab, index) => {
         return (
           <div
