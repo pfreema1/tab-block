@@ -12,8 +12,10 @@ div {
   position: relative;
 }
 
-.tab-block__header-overlay--left,
-.tab-block__header-overlay--right {
+.overlay-left,
+.overlay-right {
+  opacity: 0;
+  transition: all 0.5s;
   position: absolute;
   top: 0;
 
@@ -22,7 +24,11 @@ div {
   pointer-events: none;
 }
 
-.tab-block__header-overlay--left {
+.fade-in {
+  opacity: 1;
+}
+
+.overlay-left {
   background-image: linear-gradient(
     to left,
     RGBA(255, 255, 255, 0.85) 0%,
@@ -30,7 +36,7 @@ div {
   );
 }
 
-.tab-block__header-overlay--right {
+.overlay-right {
   background-image: linear-gradient(
     to right,
     RGBA(255, 255, 255, 0.85) 0%,

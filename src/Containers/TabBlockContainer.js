@@ -97,10 +97,10 @@ class TabBlockContainer extends Component {
     return (
       <div className="tab-block-wrapper">
         <div
-          className={showRightTabBlur ? "tab-block__header-overlay--left" : ""}
+          className={"overlay-left " + (showRightTabBlur ? "fade-in" : "")}
         />
         <div
-          className={showLeftTabBlur ? "tab-block__header-overlay--right" : ""}
+          className={"overlay-right " + (showLeftTabBlur ? "fade-in" : "")}
         />
         <TabBlockHeader
           data={data}
