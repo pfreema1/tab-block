@@ -1,8 +1,8 @@
 import React from "react";
 
-const TabBlockHeader = ({ data, handleTabClick, tabsParentElRef }) => {
+const TabBlockHeader = ({ data, handleTabClick }) => {
   return (
-    <div ref={tabsParentElRef} className="tab-block__header-wrapper">
+    <div className="tab-block__header-wrapper">
       {data.map((tab, index) => {
         return (
           <div

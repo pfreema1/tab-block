@@ -2,11 +2,11 @@ import React from "react";
 
 const TabBlockContent = ({
   data,
-  contentParentElRef,
+
   currentlyActiveTabIndex
 }) => {
   return (
-    <div ref={el => contentParentElRef} className="tab-block__content-wrapper">
+    <div className="tab-block__content-wrapper">
       {data.map((tab, index) => {
         return (
           <div
@@ -16,7 +16,7 @@ const TabBlockContent = ({
               (currentlyActiveTabIndex === index ? "active-tab" : "")
             }
           >
-            <p>{tab.text}</p>
+            <p dangerouslySetInnerHTML={{ __html: tab.text }} />
           </div>
         );
       })}

@@ -7,35 +7,48 @@ class TabBlockContainer extends Component {
   constructor(props) {
     super(props);
 
+    // this.data = this.prepareContent(props.data);
+
     this.state = {
-      currentlyActiveTabIndex: 0
+      currentlyActiveTabIndex: 0,
+      data: this.prepareContent(props.data)
     };
   }
 
+  prepareContent = data => {
+    let newDataArr = data.map(dataObj => {
+      let tempDataObj = { ...dataObj };
+      tempDataObj.imageArr.forEach(image => {
+        // create new obj property with replaced '*image*' to <img src=....../>
+
+        tempDataObj.htmlString = tempDataObj.text.replace(
+          "*image*",
+          "<img src='" + image + "' alt='meowmeow'/>"
+        );
+
+        // set the text to the htmlString so on the next iteration, we can find the next occurence of *image*
+        tempDataObj.text = tempDataObj.htmlString;
+      });
+
+      return tempDataObj;
+    });
+
+    return newDataArr;
+  };
+
   handleTabClick = (clickedIndex, e) => {
-    // for (let i = 0; i < this.props.data.length; i++) {
-    //   if (i === clickedIndex) {
-    //     this.tabsParent.children[i].classList.add("active-tab");
-    //   } else {
-    //     this.tabsParent.children[i].classList.remove("active-tab");
-    //   }
-    // }
+    this.setState({ currentlyActiveTabIndex: clickedIndex });
   };
 
   render() {
-    const { data } = this.props;
-    const { currentlyActiveTabIndex } = this.state;
+    // const { data } = this.props;
+    const { currentlyActiveTabIndex, data } = this.state;
 
     return (
       <div className="tab-block-wrapper">
-        <TabBlockHeader
-          tabsParentElRef={el => (this.tabsParent = el)}
-          data={data}
-          handleTabClick={this.handleTabClick}
-        />
+        <TabBlockHeader data={data} handleTabClick={this.handleTabClick} />
         <TabBlockContent
           data={data}
-          contentParentElRef={el => (this.contentEl = el)}
           currentlyActiveTabIndex={currentlyActiveTabIndex}
         />
       </div>
