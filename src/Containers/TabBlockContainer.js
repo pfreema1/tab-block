@@ -46,7 +46,11 @@ class TabBlockContainer extends Component {
 
     return (
       <div className="tab-block-wrapper">
-        <TabBlockHeader data={data} handleTabClick={this.handleTabClick} />
+        <TabBlockHeader
+          data={data}
+          handleTabClick={this.handleTabClick}
+          currentlyActiveTabIndex={currentlyActiveTabIndex}
+        />
         <TabBlockContent
           data={data}
           currentlyActiveTabIndex={currentlyActiveTabIndex}

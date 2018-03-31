@@ -6,13 +6,13 @@ export const exampleData = {
     {
       title: "EMBRACINGgggggg DISCOVERY",
       text:
-        "Every creative endeavor requires that you take risks. If you try and don't succeed, you've still learned something. It took Thomas Edison more than 10,000 tries to invent a viable lightbulb. You're not failing. You're discovering what doesn't work. *image* THIS IS SOME TEXT AFTER THE IMAGEEEEEE *image* AND HERE IS SOME MOMOMOMOMOOOOO",
+        "Every creative endeavor requires that you take risks. If you try and don't succeed, you've still learned something. It took Thomas Edison more than 10,000 tries to invent a viable lightbulb. You're not failing. You're discovering what doesn't work. <p>*image*</p> THIS IS SOME TEXT AFTER THE IMAGEEEEEE <p>*image*</p> AND HERE IS SOME MOMOMOMOMOOOOO",
       imageArr: [coffeeImage, articulateIcon]
     },
     {
       title: "EMBRACING DISCOVERY",
       text:
-        "Every creative endeavor requires that you take risks. If you try and don't succeed, you've still learned something. It took Thomas Edison more than 10,000 tries to invent a viable lightbulb. You're not failing. You're discovering what doesn't work. *image*",
+        "Every creative endeavor requires that you take risks. If you try and don't succeed, you've still learned something. It took Thomas Edison more than 10,000 tries to invent a viable lightbulb. You're not failing. You're discovering what doesn't work. <p>*image*</p>",
       imageArr: [coffeeImage]
     },
     {
@@ -30,13 +30,13 @@ export const exampleData = {
     {
       title: "LOVE THE WORK",
       text:
-        "Every creative endeavor requires that you take risks. If you try and don't succeed, you've still learned something. It took Thomas Edison more than 10,000 tries to invent a viable lightbulb. You're not failing. You're discovering what doesn't work. *image*",
+        "Every creative endeavor requires that you take risks. If you try and don't succeed, you've still learned something. It took Thomas Edison more than 10,000 tries to invent a viable lightbulb. You're not failing. You're discovering what doesn't work. <p>*image*</p>",
       imageArr: [articulateIcon]
     },
     {
       title: "HAVE FUN",
       text:
-        "Every creative endeavor requires that you take risks. If you try and don't succeed, you've still learned something. It took Thomas Edison more than 10,000 tries to invent a viable lightbulb. You're not failing. You're discovering what doesn't work. *image*",
+        "Every creative endeavor requires that you take risks. If you try and don't succeed, you've still learned something. It took Thomas Edison more than 10,000 tries to invent a viable lightbulb. You're not failing. You're discovering what doesn't work. <p>*image*</p>",
       imageArr: []
     }
   ]

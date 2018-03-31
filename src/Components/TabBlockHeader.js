@@ -1,6 +1,6 @@
 import React from "react";
 
-const TabBlockHeader = ({ data, handleTabClick }) => {
+const TabBlockHeader = ({ data, handleTabClick, currentlyActiveTabIndex }) => {
   return (
     <div className="tab-block__header-wrapper">
       {data.map((tab, index) => {
@@ -8,7 +8,10 @@ const TabBlockHeader = ({ data, handleTabClick }) => {
           <div
             key={index}
             onClick={handleTabClick.bind(null, index)}
-            className="tab-block__header-tab"
+            className={
+              "tab-block__header-tab " +
+              (currentlyActiveTabIndex === index ? "active-tab" : " ")
+            }
           >
             {tab.title}
           </div>

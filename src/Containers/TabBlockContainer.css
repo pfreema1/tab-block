@@ -24,6 +24,7 @@ div {
   width: 100%;
   display: inline-block;
   border: 1px solid gray;
+  border-top: none;
 }
 
 .tab-block__header-tab {
@@ -34,14 +35,25 @@ div {
   align-items: center;
   justify-content: center;
   text-align: center;
+  background: rgb(245, 245, 245);
 }
 
 .tab-block__content {
   display: none;
 }
 
-.active-tab {
+.tab-block__content p img {
+  max-width: 90%;
+  margin: 0 auto;
   display: block;
+}
+
+.active-tab {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-bottom: none;
 }
 
 @media (min-width: 800px) {
