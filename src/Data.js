@@ -38,6 +38,11 @@ export const exampleData = {
       text:
         "Every creative endeavor requires that you take risks. If you try and don't succeed, you've still learned something. It took Thomas Edison more than 10,000 tries to invent a viable lightbulb. You're not failing. You're discovering what doesn't work.",
       imageArr: []
+    },
+    {
+      title: null,
+      text: null,
+      imageArr: []
     }
   ]
 };

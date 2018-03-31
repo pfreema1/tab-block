@@ -13,7 +13,7 @@ const TabBlockContent = ({
             key={index}
             className={
               "tab-block__content " +
-              (currentlyActiveTabIndex === index ? "active-tab" : "")
+              (currentlyActiveTabIndex === index ? "active-content" : "")
             }
           >
             <p dangerouslySetInnerHTML={{ __html: tab.text }} />

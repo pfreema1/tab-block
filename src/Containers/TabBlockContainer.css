@@ -2,6 +2,10 @@ div {
   box-sizing: border-box;
 }
 
+p {
+  color: black;
+}
+
 .tab-block-wrapper {
   margin: 30px auto;
   width: 90%;
@@ -77,10 +81,14 @@ div {
   justify-content: center;
   text-align: center;
   background: rgb(245, 245, 245);
+  transition: all 0.2s;
+  border-bottom-color: gray;
 }
 
 .tab-block__content {
   display: none;
+  opacity: 0;
+  transition: all 0.2s;
 }
 
 .tab-block__content p img {
@@ -94,7 +102,36 @@ div {
   justify-content: center;
   align-items: center;
   background: white;
-  border-bottom: none;
+  /* border-bottom: 0px solid gray; */
+  border-bottom-color: white;
+  color: gray;
+}
+
+.active-content {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  /* border-bottom: 0px solid gray; */
+  border-bottom-color: white;
+  color: gray;
+  opacity: 1;
+  animation: fade-in-anim 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-in-anim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in-anim-class {
+  animation: fade-in-anim 0.3s;
+  animation-fill-mode: forwards;
 }
 
 @media (min-width: 800px) {
