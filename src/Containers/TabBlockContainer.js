@@ -7,6 +7,9 @@ class TabBlockContainer extends Component {
   constructor(props) {
     super(props);
 
+    this.totalScrollAmount = 175;
+    this.currentScrollAmount = 0;
+
     this.state = {
       currentlyActiveTabIndex: 0,
       data: this.prepareContent(props.data),
@@ -84,6 +87,52 @@ class TabBlockContainer extends Component {
     this.setState({ currentlyActiveTabIndex: clickedIndex });
   };
 
+  handleArrowClick = (dir, e) => {
+    this.scrollStartPos = this.tabBlockHeaderEl.scrollLeft;
+    this.scrollEndPos =
+      dir === "left"
+        ? this.scrollStartPos - this.totalScrollAmount
+        : this.scrollStartPos + this.totalScrollAmount;
+
+    if (dir === "left") {
+      this.animId = requestAnimationFrame(this.leftAnimFunc);
+    } else {
+      this.animId = requestAnimationFrame(this.rightAnimFunc);
+    }
+  };
+
+  // need to write checks for hitting end of scrolls!
+
+  leftAnimFunc = () => {
+    console.log("runnin it");
+    console.log(
+      "this.tabBlockHeaderEl.scrollLeft:  ",
+      this.tabBlockHeaderEl.scrollLeft
+    );
+    if (this.tabBlockHeaderEl.scrollLeft >= this.scrollEndPos) {
+      this.tabBlockHeaderEl.scrollLeft -= 15;
+      this.animId = requestAnimationFrame(this.leftAnimFunc);
+    } else {
+      cancelAnimationFrame(this.animId);
+    }
+  };
+
+  rightAnimFunc = () => {
+    console.log("runnin it");
+    console.log(
+      "this.tabBlockHeaderEl.scrollLeft:  ",
+      this.tabBlockHeaderEl.scrollLeft
+    );
+    if (this.tabBlockHeaderEl.scrollLeft <= this.scrollEndPos) {
+      this.tabBlockHeaderEl.scrollLeft += 15;
+      this.animId = requestAnimationFrame(this.rightAnimFunc);
+    } else {
+      cancelAnimationFrame(this.animId);
+    }
+  };
+
+  scrollToEnd = (scrollDuration, scrollDirection) => {};
+
   render() {
     // const { data } = this.props;
     const {
@@ -102,13 +151,18 @@ class TabBlockContainer extends Component {
         <div
           className={"overlay-right " + (showLeftTabBlur ? "fade-in" : "")}
         />
+
         <TabBlockHeader
           data={data}
           handleTabClick={this.handleTabClick}
           currentlyActiveTabIndex={currentlyActiveTabIndex}
           tabBlockHeaderRef={el => (this.tabBlockHeaderEl = el)}
           handleTabHeaderScroll={this.handleTabHeaderScroll}
+          showLeftTabBlur={showLeftTabBlur}
+          showRightTabBlur={showRightTabBlur}
+          handleArrowClick={this.handleArrowClick}
         />
+
         <TabBlockContent
           data={data}
           currentlyActiveTabIndex={currentlyActiveTabIndex}
